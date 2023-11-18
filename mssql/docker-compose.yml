@@ -1,0 +1,27 @@
+version: '3.8'
+
+networks:
+  airflow_network:
+    name: airflow_network
+    external: true
+
+services:
+  mssqldb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: sqlserver
+    ports:
+      - 1433:1433
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "dscPass23!"
+      MSSQL_PID: "Developer"
+      MSSQL_TCP_PORT: 1433
+    volumes:
+      - ./config:/config
+      - ./backups:/var/opt/mssql/backup
+      - mssql_data:/var/opt/mssql/data
+    networks:
+      - airflow_network
+
+volumes:
+  mssql_data:
