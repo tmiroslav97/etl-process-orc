@@ -10,11 +10,15 @@ then
     docker compose -f ./mssql/docker-compose.yml down -v
     echo ">> Shutting down Airflow"
     docker compose -f ./airflow/docker-compose.yml down -v
+    echo ">> Shutting down Postgres 'dw_database'"
+    docker compose -f ./postgres/docker-compose.yml down -v
 else
     echo ">> Shutting down MSSQL cluster"
     docker compose -f ./mssql/docker-compose.yml down
     echo ">> Shutting down Airflow"
     docker compose -f ./airflow/docker-compose.yml down
+    echo ">> Shutting down Postgres 'dw_database'"
+    docker compose -f ./postgres/docker-compose.yml down
 fi
 
 echo "> Deleting 'airflow_network' network"

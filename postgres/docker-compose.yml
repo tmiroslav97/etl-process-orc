@@ -1,0 +1,31 @@
+version: '3.8'
+
+networks:
+  airflow_network:
+    name: airflow_network
+    external: true
+
+services:
+  postgresdb:
+    image: postgres:16
+    container_name: postgresdb
+    environment:
+      POSTGRES_USER: "olapuser"
+      POSTGRES_PASSWORD: "dscPass23!"
+      POSTGRES_DB: "dw_database"
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./config:/config
+      - postgresdb_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "olap-user"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+    networks:
+      - airflow_network
+
+volumes:
+  postgresdb_data:
