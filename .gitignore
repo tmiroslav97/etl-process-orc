@@ -1,1 +1,3 @@
 mssql/backups/*
+airflow/logs/*
+airflow/plugins/*
