@@ -5,6 +5,8 @@ Main focus of this tutorial is to get familiar with Apache Airflow concepts on f
 
 ## Prerequisites
 
+In order to run project Docker has to be installed.
+
 To be able to run examples they should be downloaded from:
 https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms
 
