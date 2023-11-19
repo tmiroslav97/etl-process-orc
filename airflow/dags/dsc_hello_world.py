@@ -4,6 +4,12 @@ from airflow.decorators import task, dag
 import logging
 logger = logging.getLogger(__name__)
 
+def _success_criteria(record):
+    return record
+
+def _failure_criteria(record):
+    return True if not record else False
+
 
 @dag(dag_id="dsc_hello_world",
     description="DAG with hello world example",
