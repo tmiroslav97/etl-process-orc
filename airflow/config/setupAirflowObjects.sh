@@ -31,3 +31,7 @@ airflow connections add 'AIRFLOW_DB_CONNECTION' \
         "port": 5432,
         "schema": "airflow"
     }'
+
+# Set up variables
+echo ">> Setting up airflow variables"
+airflow variables set SQL_CHUNK_SIZE 20
