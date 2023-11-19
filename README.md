@@ -5,7 +5,7 @@ Main focus of this tutorial is to get familiar with Apache Airflow concepts on f
 
 ## Prerequisites
 
-To be able to run examples examples should be downloaded from:
+To be able to run examples they should be downloaded from:
 https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms
 
 Two backups should be downloaded:
