@@ -1,0 +1,1 @@
+select count(*)-'{{ ti.xcom_pull(task_ids='get_currencies_count', key='return_value') }}' from sales.currency;

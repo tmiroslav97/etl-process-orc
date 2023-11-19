@@ -14,8 +14,8 @@ sleep 5
 echo "> Starting up Postgres 'dw_database'"
 docker compose -f ./postgres/docker-compose.yml up -d
 
-echo "> Services started, going to sleep for 25 seconds"
-sleep 25
+echo "> Services started, going to sleep for 15 seconds"
+sleep 15
 
 echo "> Configuring individual services"
 

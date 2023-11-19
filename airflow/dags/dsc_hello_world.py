@@ -4,13 +4,6 @@ from airflow.decorators import task, dag
 import logging
 logger = logging.getLogger(__name__)
 
-def _success_criteria(record):
-    return record
-
-def _failure_criteria(record):
-    return True if not record else False
-
-
 @dag(dag_id="dsc_hello_world",
     description="DAG with hello world example",
     start_date=datetime(2023,11,1),
@@ -42,6 +35,7 @@ def dsc_hello_world():
         """
         print("Hello world from DSC Europe 2023!")
 
-    [hello_world(), from_dsc()]
+    #[hello_world(), from_dsc()]
+    hello_world() >> from_dsc()
 
 dsc_hello_world()
