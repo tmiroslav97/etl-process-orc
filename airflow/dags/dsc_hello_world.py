@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 @dag(dag_id="dsc_hello_world",
     description="DAG with hello world example",
-    start_date=datetime(2023,11,1),
+    start_date=datetime(2024,11,1),
     schedule_interval="@monthly",
     max_active_runs=1)
 def dsc_hello_world():
@@ -33,7 +33,7 @@ def dsc_hello_world():
 
         This task will print complete message
         """
-        print("Hello world from DSC Europe 2023!")
+        print("Hello world from DSC Europe!")
 
     #[hello_world(), from_dsc()]
     hello_world() >> from_dsc()

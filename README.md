@@ -1,6 +1,6 @@
 # Introduction to Orchestration ETL Processes With Apache Airflow
 
-This repository contains all files from tutorial that I held at Data Science Conference Europe 2023.
+This repository contains all files from tutorial that I held at Data Science Conference Europe.
 Main focus of this tutorial is to get familiar with Apache Airflow concepts on first place and to demonstrate its usage for creation and orchestration of ETL processess. 
 
 ## Prerequisites
@@ -11,8 +11,8 @@ To be able to run examples they should be downloaded from:
 https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms
 
 Two backups should be downloaded:
-* AdventureWorks2017.bak
-* AdventureWorksDW2017.bak
+* AdventureWorks2019.bak
+* AdventureWorksDW2019.bak
 
 After download they should be put inside mssql/backups directory.
 

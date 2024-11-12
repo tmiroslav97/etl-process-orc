@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 @dag(dag_id="dsc_load_currency_rate",
     description="DAG fow loading currency rates into dw zone",
-    start_date=datetime(2023,11,1),
+    start_date=datetime(2024,11,1),
     schedule_interval="@once",
     params={
         "currencies": Param(["USD", "EUR"], type=["null", "array"])

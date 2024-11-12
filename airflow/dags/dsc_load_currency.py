@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 @dag(dag_id="dsc_load_currency",
     description="DAG fow loading currencies into dw zone",
-    start_date=datetime(2023,11,1),
+    start_date=datetime(2024,11,1),
     schedule_interval="@once")
 def dsc_load_currency():
     """

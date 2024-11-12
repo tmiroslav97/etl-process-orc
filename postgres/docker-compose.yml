@@ -11,7 +11,7 @@ services:
     container_name: postgresdb
     environment:
       POSTGRES_USER: "olapuser"
-      POSTGRES_PASSWORD: "dscPass23!"
+      POSTGRES_PASSWORD: "dscPass24!"
       POSTGRES_DB: "dw_database"
     ports:
       - "5433:5432"

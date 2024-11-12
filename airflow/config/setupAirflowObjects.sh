@@ -6,17 +6,17 @@ airflow connections add 'SQL_SERVER_CONNECTION' \
     --conn-json '{
         "conn_type": "mssql",
         "login": "sa",
-        "password": "dscPass23!",
+        "password": "dscPass24!",
         "host": "mssqldb",
         "port": 1433,
-        "schema": "AdventureWorks2017"
+        "schema": "AdventureWorks2019"
     }'
 
 airflow connections add 'POSTGRES_DW_CONNECTION' \
     --conn-json '{
         "conn_type": "postgres",
         "login": "olapuser",
-        "password": "dscPass23!",
+        "password": "dscPass24!",
         "host": "postgresdb",
         "port": 5432,
         "schema": "dw_database"

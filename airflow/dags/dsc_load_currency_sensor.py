@@ -17,7 +17,7 @@ def _success_criteria(record):
 
 @dag(dag_id="dsc_load_currency_sensor",
     description="DAG fow loading currencies into dw zone with sql sensor",
-    start_date=datetime(2023,11,1),
+    start_date=datetime(2024,11,1),
     schedule_interval="@once")
 def dsc_load_currency_sensor():
     """
