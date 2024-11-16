@@ -1,7 +1,15 @@
 #!/bin/bash
 
 ls /var/opt/mssql/backup
-/opt/mssql-tools/bin/sqlcmd -S 127.0.0.1 -U sa -P dscPass23! -Q 'restore filelistonly from disk="/var/opt/mssql/backup/AdventureWorks2017.bak"'
-/opt/mssql-tools/bin/sqlcmd -S 127.0.0.1 -U sa -P dscPass23! -Q 'RESTORE DATABASE AdventureWorks2017 FROM DISK="/var/opt/mssql/backup/AdventureWorks2017.bak" WITH
-MOVE "AdventureWorks2017" to "/var/opt/mssql/data/AdventureWorks2017.mdf",
-MOVE "AdventureWorks2017_log" to "/var/opt/mssql/data/AdventureWorks2017_log.ldf"'
+
+# adding OLTP database
+/opt/mssql-tools18/bin/sqlcmd -S 127.0.0.1 -U sa -P dscPass24! -C -Q 'restore filelistonly from disk="/var/opt/mssql/backup/AdventureWorks2019.bak"'
+/opt/mssql-tools18/bin/sqlcmd -S 127.0.0.1 -U sa -P dscPass24! -C -Q 'RESTORE DATABASE AdventureWorks2019 FROM DISK="/var/opt/mssql/backup/AdventureWorks2019.bak" WITH
+MOVE "AdventureWorks2019" to "/var/opt/mssql/data/AdventureWorks2019.mdf",
+MOVE "AdventureWorks2019_log" to "/var/opt/mssql/data/AdventureWorks2019_log.ldf"'
+
+# adding OLAP database
+/opt/mssql-tools18/bin/sqlcmd -S 127.0.0.1 -U sa -P dscPass24! -C -Q 'restore filelistonly from disk="/var/opt/mssql/backup/AdventureWorksDW2019.bak"'
+/opt/mssql-tools18/bin/sqlcmd -S 127.0.0.1 -U sa -P dscPass24! -C -Q 'RESTORE DATABASE AdventureWorksDW2019 FROM DISK="/var/opt/mssql/backup/AdventureWorksDW2019.bak" WITH
+MOVE "AdventureWorksDW2019" to "/var/opt/mssql/data/AdventureWorksDW2019.mdf",
+MOVE "AdventureWorksDW2019_log" to "/var/opt/mssql/data/AdventureWorksDW2019_log.ldf"'

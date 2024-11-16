@@ -44,13 +44,20 @@
 #
 # Feel free to modify this file to suit your needs.
 ---
+version: '3.8'
+
+networks:
+  airflow_network:
+    name: airflow_network
+    external: true
+    
 x-airflow-common:
   &airflow-common
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:|version|}
-  # build: .
+  # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:|version|}
+  build: .
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -75,6 +82,8 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
   user: "${AIRFLOW_UID:-50000}:0"
+  networks:
+    - airflow_network
   depends_on:
     &airflow-common-depends-on
     redis:
@@ -84,7 +93,7 @@ x-airflow-common:
 
 services:
   postgres:
-    image: postgres:13
+    image: postgres:16
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -97,9 +106,11 @@ services:
       retries: 5
       start_period: 5s
     restart: always
+    networks:
+      - airflow_network
 
   redis:
-    image: redis:latest
+    image: redis:7
     expose:
       - 6379
     healthcheck:
@@ -109,6 +120,8 @@ services:
       retries: 50
       start_period: 30s
     restart: always
+    networks:
+      - airflow_network
 
   airflow-webserver:
     <<: *airflow-common
