@@ -20,7 +20,7 @@ def dsc_load_currency_rate():
     """
     ### Loading currencies from OLTP database
 
-    This DAG will load all currency reates inside DW currency rate fact table
+    This DAG will load all currency rates inside DW currency rate fact table
     
     Params:
     * currencies (array): list of currencies for which currency rate should be loaded, if it is empty then all currency rates will be loaded

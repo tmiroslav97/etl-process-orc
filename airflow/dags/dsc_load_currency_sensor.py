@@ -75,7 +75,6 @@ def dsc_load_currency_sensor():
             "where CurrencyCode not in ({})".format(', '.join(["'{}'".format(value) for value in currency_codes['currency_code']]))
         );
 
-        postgres_hook= PostgresHook(postgres_conn_id='POSTGRES_DW_CONNECTION')
         rows_df.to_sql("dim_currency", postgres_hook.get_sqlalchemy_engine(), schema='dw_schema', if_exists='append', index=False)
 
     doc_md_delete_xcoms = """
